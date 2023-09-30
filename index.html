@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Text to Base64 Converter</title>
+    <title>Text / Base64 Converter</title>
 </head>
 <body>
-    <h1>Text to Base64 Converter</h1>
+    <h1>Text / Base64 Converter</h1>
     
     <div>
         <label for="plaintextInput">Enter Plaintext:</label>
@@ -29,14 +29,13 @@
     </div>
 
     <script>
-        console.log("v1");
+        console.log("v3");
 
         function convertToBase64() {
             const plaintextInput = document.getElementById('plaintextInput');
-            const base64Output = document.getElementById('base64Result');
+            const base64Result = document.getElementById('base64Result');
 
-            const inputPlaintext = plaintextInput.value;
-            const base64Text = btoa(inputText); // Convert to Base64
+            const base64Text = btoa(plaintextInput.value); // Convert to Base64
 
             base64Result.textContent = base64Text;
         }
@@ -45,8 +44,7 @@
             const base64Input = document.getElementById('base64Input');
             const plaintextResult = document.getElementById('plaintextResult');
 
-            const inputBase64 = base64Input.value;
-            const plaintext = btoa(inputBase64); // Convert to Base64
+            const plaintext = atob(base64Input.value); // Convert to Plaintext, todo handle exceptions
 
             plaintextResult.textContent = plaintext;
         }
