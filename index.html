@@ -7,25 +7,48 @@
     <h1>Text to Base64 Converter</h1>
     
     <div>
-        <label for="textInput">Enter Text:</label>
-        <input type="text" id="textInput" placeholder="Type your text here">
+        <label for="plaintextInput">Enter Plaintext:</label>
+        <input type="text" id="plaintextInput" placeholder="Type your plaintext here">
         <button onclick="convertToBase64()">Convert to Base64</button>
     </div>
 
     <div>
         <p><strong>Base64 Result:</strong></p>
-        <p id="base64Output"></p>
+        <p id="base64Result"></p>
+    </div>
+
+    <div>
+        <label for="base64Input">Enter Base64 Text:</label>
+        <input type="text" id="base64Input" placeholder="Type your base64 text here">
+        <button onclick="convertToPlaintext()">Convert to Plaintext</button>
+    </div>
+
+    <div>
+        <p><strong>Plaintext Result:</strong></p>
+        <p id="plaintextResult"></p>
     </div>
 
     <script>
-        function convertToBase64() {
-            const textInput = document.getElementById('textInput');
-            const base64Output = document.getElementById('base64Output');
+        console.log("v1");
 
-            const inputText = textInput.value;
+        function convertToBase64() {
+            const plaintextInput = document.getElementById('plaintextInput');
+            const base64Output = document.getElementById('base64Result');
+
+            const inputPlaintext = plaintextInput.value;
             const base64Text = btoa(inputText); // Convert to Base64
 
-            base64Output.textContent = base64Text;
+            base64Result.textContent = base64Text;
+        }
+
+        function convertToPlaintext() {
+            const base64Input = document.getElementById('base64Input');
+            const plaintextResult = document.getElementById('plaintextResult');
+
+            const inputBase64 = base64Input.value;
+            const plaintext = btoa(inputBase64); // Convert to Base64
+
+            plaintextResult.textContent = plaintext;
         }
     </script>
 </body>
